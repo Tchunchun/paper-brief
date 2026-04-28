@@ -109,3 +109,27 @@ paper-brief/references/evidence-calibration.md
 - Keep the directory name aligned with the `name` field in `SKILL.md`.
 - Do not package `.DS_Store`, editor state, or temporary files.
 - Rebuild and inspect `paper-brief.skill` after every source change.
+
+## Skill Authoring Standards
+
+Paper Brief follows the Agent Skills format. The core maintenance rules are:
+
+- A skill must be a directory with a `SKILL.md` file.
+- The directory name must exactly match the `name` field in `SKILL.md` frontmatter.
+- Skill names must be lowercase, hyphenated, and limited to letters, digits, and hyphens.
+- The `description` should be a single-line, action-first summary that says what the skill does, when to use it, and what not to use it for.
+- Set `license`, `compatibility`, and `metadata.version` explicitly.
+- Keep `SKILL.md` concise; move detailed operating guidance into focused files under `references/`.
+- Use `references/` for on-demand documentation, `assets/` for static templates/data, and `scripts/` only for executable helpers.
+- Keep examples and internal file references relative to the skill root.
+- Document inputs, steps, outputs, failure modes, and validation checks in the skill body.
+- Rebuild and inspect the `.skill` archive after every source change.
+- Do not package `.DS_Store`, editor state, logs, temporary files, or local planning artifacts.
+
+Before publishing a change, verify:
+
+1. `paper-brief/SKILL.md` frontmatter name is `paper-brief`.
+2. The description is under 1024 characters and includes high-signal triggers.
+3. `SKILL.md` stays under 500 lines.
+4. Reference files are focused and only loaded when needed.
+5. `paper-brief.skill` contains only the skill source and reference files.
